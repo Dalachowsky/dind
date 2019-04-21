@@ -1,0 +1,56 @@
+#!/bin/bash
+
+#			Dalach's Automatic Compiler v 1.0
+#
+# How does it work?
+# Scripts goes through all the files inside current directory and compiles
+# them all at once.
+
+args=("$@")				#variable for parameters
+list=($(ls *.cpp *.h))			#list of all .h and .cpp files
+if [ -z "$list" ] ; then 		#
+	printf "\n\e[31;1m error: \e[0m No files found for compilation\n"
+	printf " Task cancelled\n\n"
+	exit
+fi
+
+#echo ${list[@]}
+
+outfile=output				#Name of the output file
+execute=false
+i=0					#iteration index
+
+while [[ "$i" -lt "$#" ]]		#parameters check
+do
+	case "${args[$i]}" in
+	"-x")
+		execute=true
+		;;
+	"-o")
+		let i++
+		outfile=${args[$i]}
+		;;
+	"-h")
+		printf "\n        ###############################"
+		printf "\n        # Dalach's Automatic Compiler #"
+		printf "\n        ###############################\n\n"
+		printf "How to use\n"
+		printf "Move into the directory with your c++ project and execute it.\n\n"
+		printf "Options:\n"
+		printf " -x		Execute after compiling\n"
+		printf " -o [NAME]	Set output file name\n"
+		printf "\nby Kacper Dalach\n"
+		exit
+		;;
+	*)
+		printf "\n\e[31merror: \e[0m Unknown argument: $arg \n"
+		printf "Use \e[34m-h\e[0m for help \n\n"
+		printf "Task cancelled \n" 
+		exit 
+		;;
+	esac
+	let i++
+done
+
+g++ ${list[*]} -o $outfile
+if [ $execute = true ] ; then ./output ; fi
