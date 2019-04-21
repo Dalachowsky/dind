@@ -1,17 +1,14 @@
-################################################################
-#               Dalach Is Not a Developer                      #
-################################################################
+## Dalach Is Not a Developer
 
 Hi if you somehow stumpled upon this repository you might want 
 to know what is happening here right?
 
 So basically here i will upload my bash scripts (mainly to
 acces them from other PCs) but if you find some of them helpful
-feel fre to use them.
+feel free to use them.
 
-#######
-# DAC #
-#######
+## DAC 
+
 Dalach's Auto Compiler
 v1.0
 
