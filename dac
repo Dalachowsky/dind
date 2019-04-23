@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#			Dalach's Automatic Compiler v 1.1
+#			Dalach's Automatic Compiler v 1.2
 #
 # How does it work?
 # Scripts goes through all the files inside current directory and compiles
@@ -16,8 +16,9 @@ fi
 
 #echo ${list[@]}
 
-outfile=output				#Name of the output file
+outfile="output"				#Name of the output file
 execute=false
+keepOutfile=false
 #debugging=""
 i=0					#iteration index
 
@@ -31,16 +32,20 @@ do
 		let i++
 		outfile=${args[$i]}
 		;;
+	"-k")
+		keepOutfile=true
+		;;
 	"-h")
 		printf "\n        ####################################"
-		printf "\n        # Dalach's Automatic Compiler v1.1 #"
+		printf "\n        # Dalach's Automatic Compiler v1.2 #"
 		printf "\n        ####################################\n\n"
 		printf "How to use\n"
 		printf "Move into the directory with your c++ project and execute it.\n\n"
 		printf "Options:\n"
 		printf " -x		Execute after compiling\n"
 		printf " -o [NAME]	Set output file name\n"
-		printf " -lncurses	Adds lncurses support"
+		printf " -k		Keep Output file\n"
+		printf " -lncurses	Adds lncurses support\n"
 		printf "\nby Kacper Dalach\n"
 		exit
 		;;
@@ -59,3 +64,4 @@ done
 
 g++ ${list[*]} -o $outfile $lncurses
 if [ $execute = true ] ; then ./output ; fi
+if [ $keepOutfile = false ] ; then rm $outfile ; fi
