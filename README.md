@@ -10,7 +10,7 @@ feel free to use them.
 ## DAC 
 
 Dalach's Auto Compiler
-v1.0
+v1.1
 
 This script searches for any *.cpp and *.h files inside current
 directory, compiles them and links. User can specify the output

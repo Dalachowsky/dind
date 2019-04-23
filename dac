@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#			Dalach's Automatic Compiler v 1.0
+#			Dalach's Automatic Compiler v 1.1
 #
 # How does it work?
 # Scripts goes through all the files inside current directory and compiles
@@ -32,14 +32,15 @@ do
 		outfile=${args[$i]}
 		;;
 	"-h")
-		printf "\n        ###############################"
-		printf "\n        # Dalach's Automatic Compiler #"
-		printf "\n        ###############################\n\n"
+		printf "\n        ####################################"
+		printf "\n        # Dalach's Automatic Compiler v1.1 #"
+		printf "\n        ####################################\n\n"
 		printf "How to use\n"
 		printf "Move into the directory with your c++ project and execute it.\n\n"
 		printf "Options:\n"
 		printf " -x		Execute after compiling\n"
 		printf " -o [NAME]	Set output file name\n"
+		printf " -lncurses	Adds lncurses support"
 		printf "\nby Kacper Dalach\n"
 		exit
 		;;
