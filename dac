@@ -18,6 +18,7 @@ fi
 
 outfile=output				#Name of the output file
 execute=false
+#debugging=""
 i=0					#iteration index
 
 while [[ "$i" -lt "$#" ]]		#parameters check
@@ -42,6 +43,9 @@ do
 		printf "\nby Kacper Dalach\n"
 		exit
 		;;
+	"-lncurses")
+		lncurses="-lncurses"	
+		;;
 	*)
 		printf "\n\e[31merror: \e[0m Unknown argument: $arg \n"
 		printf "Use \e[34m-h\e[0m for help \n\n"
@@ -52,5 +56,5 @@ do
 	let i++
 done
 
-g++ ${list[*]} -o $outfile
+g++ ${list[*]} -o $outfile $lncurses
 if [ $execute = true ] ; then ./output ; fi
